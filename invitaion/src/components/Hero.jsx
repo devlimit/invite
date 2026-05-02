@@ -12,12 +12,12 @@ function Hero() {
       </div>
       <div className="hero__info">
         <p className="hero__names">
-          <span>김신랑</span>
+          <span>이경수</span>
           <span className="hero__heart">♥</span>
-          <span>이신부</span>
+          <span>신혜림</span>
         </p>
-        <p className="hero__date">2025. 03. 15. SAT PM 2:00</p>
-        <p className="hero__venue">그랜드 웨딩홀 5층 그랜드볼룸</p>
+        <p className="hero__date">2026. 09. 19. SAT PM 5:40</p>
+        <p className="hero__venue">공군호텔 3층 그랜드볼룸</p>
       </div>
     </section>
   )

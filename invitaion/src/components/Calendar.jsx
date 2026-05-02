@@ -1,4 +1,4 @@
-const WEDDING_DATE = new Date('2025-03-15')
+const WEDDING_DATE = new Date('2026-09-19')
 const YEAR = WEDDING_DATE.getFullYear()
 const MONTH = WEDDING_DATE.getMonth()
 const DAY = WEDDING_DATE.getDate()
@@ -48,7 +48,7 @@ function Calendar() {
         </div>
       </div>
       <div className="calendar__time">
-        <p>2025년 3월 15일 토요일 오후 2시</p>
+        <p>2026년 9월 19일 토요일 오후 5시 40분</p>
       </div>
     </section>
   )

@@ -12,7 +12,7 @@ function Couple() {
           </div>
           <div className="couple__info">
             <p className="couple__role">신랑</p>
-            <p className="couple__name">김신랑</p>
+            <p className="couple__name">이경수</p>
             <div className="couple__contact">
               <a href="tel:010-1234-5678" className="couple__phone">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
@@ -37,7 +37,7 @@ function Couple() {
           </div>
           <div className="couple__info">
             <p className="couple__role">신부</p>
-            <p className="couple__name">이신부</p>
+            <p className="couple__name">신혜림</p>
             <div className="couple__contact">
               <a href="tel:010-9876-5432" className="couple__phone">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">

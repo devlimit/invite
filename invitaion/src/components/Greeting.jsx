@@ -18,10 +18,10 @@ function Greeting() {
       </div>
       <div className="greeting__parents">
         <p>
-          <span className="parent-name">김아버지</span> · <span className="parent-name">박어머니</span>의 장남 <strong>신랑</strong>
+          <span className="parent-name">이아버지</span> · <span className="parent-name">이어머니</span>의 아들 <strong>경수</strong>
         </p>
         <p>
-          <span className="parent-name">이아버지</span> · <span className="parent-name">최어머니</span>의 차녀 <strong>신부</strong>
+          <span className="parent-name">신아버지</span> · <span className="parent-name">신어머니</span>의 딸 <strong>혜림</strong>
         </p>
       </div>
     </section>
