@@ -40,7 +40,8 @@ function Intro({ fading }) {
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    fetch('/fonts/PinyonScript-Regular.ttf')
+    const fontUrl = `${import.meta.env.BASE_URL}fonts/PinyonScript-Regular.ttf`
+    fetch(fontUrl)
       .then(res => {
         if (!res.ok) throw new Error(`fetch failed: ${res.status}`)
         return res.arrayBuffer()
