@@ -1,44 +1,51 @@
 import { useState, useEffect } from 'react'
 
 function Intro({ fading }) {
-  const fullText = "We're Getting Married!"
-  const [displayText, setDisplayText] = useState('')
-  const [showCursor, setShowCursor] = useState(true)
+  const line1 = "We're getting"
+  const line2 = "Married"
+  const [text1, setText1] = useState('')
+  const [text2, setText2] = useState('')
+  const [phase, setPhase] = useState(1)
 
   useEffect(() => {
     let index = 0
-    const typingInterval = setInterval(() => {
-      if (index < fullText.length) {
-        setDisplayText(fullText.slice(0, index + 1))
+
+    const typeFirstLine = setInterval(() => {
+      if (index < line1.length) {
+        setText1(line1.slice(0, index + 1))
         index++
       } else {
-        clearInterval(typingInterval)
+        clearInterval(typeFirstLine)
+        setPhase(2)
       }
-    }, 100)
+    }, 80)
 
-    return () => clearInterval(typingInterval)
+    return () => clearInterval(typeFirstLine)
   }, [])
 
   useEffect(() => {
-    const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev)
-    }, 500)
+    if (phase !== 2) return
 
-    return () => clearInterval(cursorInterval)
-  }, [])
+    let index = 0
+    const typeSecondLine = setInterval(() => {
+      if (index < line2.length) {
+        setText2(line2.slice(0, index + 1))
+        index++
+      } else {
+        clearInterval(typeSecondLine)
+      }
+    }, 80)
+
+    return () => clearInterval(typeSecondLine)
+  }, [phase])
 
   return (
     <div className={`intro ${fading ? 'intro--fading' : ''}`}>
       <div className="intro__content">
-        <h1 className="intro__title intro__title--typing">
-          {displayText}
-          <span className={`intro__cursor ${showCursor ? '' : 'intro__cursor--hidden'}`}>|</span>
+        <h1 className="intro__title">
+          <span className="intro__line">{text1}</span>
+          <span className="intro__line">{text2}</span>
         </h1>
-        <div className="intro__hearts">
-          <span>♥</span>
-          <span>♥</span>
-          <span>♥</span>
-        </div>
       </div>
     </div>
   )
