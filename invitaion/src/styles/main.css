@@ -69,7 +69,25 @@ body {
   font-size: 2rem;
   font-weight: 400;
   color: var(--color-text);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
+}
+
+.intro__title--typing {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+.intro__cursor {
+  font-weight: 100;
+  font-style: normal;
+  animation: none;
+  margin-left: 2px;
+  color: var(--color-primary);
+}
+
+.intro__cursor--hidden {
+  opacity: 0;
 }
 
 .intro__hearts {
