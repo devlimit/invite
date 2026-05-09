@@ -3,8 +3,10 @@ import { parse } from 'opentype.js'
 
 const LINE1 = "We're getting"
 const LINE2 = "Married"
+const CHAR_DURATION = 0.6
+const CHAR_GAP = 0.4
 
-function HandwritingPath({ d, delay = 0, duration = 4 }) {
+function CharPath({ d, drawDelay }) {
   const pathRef = useRef(null)
   const [length, setLength] = useState(0)
 
@@ -22,13 +24,16 @@ function HandwritingPath({ d, delay = 0, duration = 4 }) {
       d={d}
       fill="#d4a5a5"
       stroke="#d4a5a5"
-      strokeWidth="0.5"
+      strokeWidth="0.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       style={{
-        strokeDasharray: length || 10000,
-        strokeDashoffset: length || 10000,
+        strokeDasharray: length || 5000,
+        strokeDashoffset: length || 5000,
         fillOpacity: 0,
         animation: length > 0
-          ? `drawStroke ${duration}s ease forwards ${delay}s, fillIn 0.8s ease forwards ${delay + duration * 0.85}s`
+          ? `drawStroke ${CHAR_DURATION}s ease-in-out forwards ${drawDelay}s,
+             fillIn 0.3s ease forwards ${drawDelay + CHAR_DURATION * 0.8}s`
           : 'none',
       }}
     />
@@ -36,37 +41,42 @@ function HandwritingPath({ d, delay = 0, duration = 4 }) {
 }
 
 function Intro({ fading }) {
-  const [paths, setPaths] = useState({ line1: null, line2: null, viewBox: '0 0 500 200' })
+  const [charPaths, setCharPaths] = useState([])
+  const [viewBox, setViewBox] = useState('0 0 500 220')
   const [error, setError] = useState(false)
 
   useEffect(() => {
     const fontUrl = `${import.meta.env.BASE_URL}fonts/PinyonScript-Regular.ttf`
     fetch(fontUrl)
       .then(res => {
-        if (!res.ok) throw new Error(`fetch failed: ${res.status}`)
+        if (!res.ok) throw new Error(`${res.status}`)
         return res.arrayBuffer()
       })
       .then(buffer => {
         const font = parse(buffer)
         const fontSize = 72
 
-        const p1 = font.getPath(LINE1, 0, fontSize, fontSize)
-        const p2 = font.getPath(LINE2, 30, fontSize * 2.3, fontSize)
+        const paths1 = font.getPaths(LINE1, 0, fontSize, fontSize)
+        const paths2 = font.getPaths(LINE2, 30, fontSize * 2.3, fontSize)
 
-        const bb1 = p1.getBoundingBox()
-        const bb2 = p2.getBoundingBox()
-        const xMin = Math.min(bb1.x1, bb2.x1) - 10
-        const w = Math.max(bb1.x2, bb2.x2) - xMin + 20
-        const h = bb2.y2 + 20
+        const allPaths = [...paths1, ...paths2]
+        const allData = allPaths.map((p, i) => ({
+          d: p.toPathData(2),
+          delay: i * CHAR_GAP,
+        }))
 
-        setPaths({
-          line1: p1.toPathData(2),
-          line2: p2.toPathData(2),
-          viewBox: `${xMin} -10 ${w} ${h}`,
-        })
+        const xs = allPaths.map(p => { const bb = p.getBoundingBox(); return [bb.x1, bb.x2] }).flat()
+        const ys = allPaths.map(p => { const bb = p.getBoundingBox(); return [bb.y1, bb.y2] }).flat()
+        const xMin = Math.min(...xs) - 10
+        const xMax = Math.max(...xs) + 10
+        const yMin = Math.min(...ys) - 10
+        const yMax = Math.max(...ys) + 10
+
+        setCharPaths(allData)
+        setViewBox(`${xMin} ${yMin} ${xMax - xMin} ${yMax - yMin}`)
       })
       .catch(err => {
-        console.error('Font load error:', err)
+        console.error('Font error:', err)
         setError(true)
       })
   }, [])
@@ -75,7 +85,7 @@ function Intro({ fading }) {
     return (
       <div className={`intro ${fading ? 'intro--fading' : ''}`}>
         <div className="intro__content">
-          <h1 className="intro__title intro__title--fallback">
+          <h1 className="intro__title--fallback">
             We&apos;re getting<br />Married
           </h1>
         </div>
@@ -86,14 +96,11 @@ function Intro({ fading }) {
   return (
     <div className={`intro ${fading ? 'intro--fading' : ''}`}>
       <div className="intro__content">
-        {paths.line1 ? (
-          <svg
-            className="intro__svg"
-            viewBox={paths.viewBox}
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <HandwritingPath d={paths.line1} delay={0} duration={3.5} />
-            <HandwritingPath d={paths.line2} delay={3.8} duration={2.5} />
+        {charPaths.length > 0 ? (
+          <svg className="intro__svg" viewBox={viewBox} xmlns="http://www.w3.org/2000/svg">
+            {charPaths.map((cp, i) => (
+              <CharPath key={i} d={cp.d} drawDelay={cp.delay} />
+            ))}
           </svg>
         ) : (
           <div className="intro__loading" />
