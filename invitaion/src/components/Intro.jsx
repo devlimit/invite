@@ -18,7 +18,7 @@ function Intro({ fading }) {
         clearInterval(typeFirstLine)
         setPhase(2)
       }
-    }, 80)
+    }, 180)
 
     return () => clearInterval(typeFirstLine)
   }, [])
@@ -34,7 +34,7 @@ function Intro({ fading }) {
       } else {
         clearInterval(typeSecondLine)
       }
-    }, 80)
+    }, 180)
 
     return () => clearInterval(typeSecondLine)
   }, [phase])
