@@ -12,9 +12,9 @@ const accounts = {
   bride: {
     title: '신부측',
     accounts: [
-      { bank: '카카오뱅크', number: '3333-12-3456789', holder: '이신부' },
-      { bank: '하나은행', number: '123-456789-12345', holder: '이아버지' },
-      { bank: '농협은행', number: '123-4567-8901-23', holder: '최어머니' },
+      { bank: '카카오뱅크', number: '3333-12-3456789', holder: '신혜림' },
+      { bank: '하나은행', number: '123-456789-12345', holder: '신현성' },
+      { bank: '농협은행', number: '123-4567-8901-23', holder: '박용자' },
     ]
   }
 }

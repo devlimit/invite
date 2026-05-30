@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { parse } from 'opentype.js'
 
 const LINE1 = "We're getting"
-const LINE2 = "Married"
-const CHAR_DURATION = 0.6
-const CHAR_GAP = 0.4
+const LINE2 = "Married!"
+const CHAR_DURATION = 0.3
+const CHAR_GAP = 0.1
 
 function CharPath({ d, drawDelay }) {
   const pathRef = useRef(null)

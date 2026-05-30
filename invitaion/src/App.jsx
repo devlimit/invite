@@ -20,11 +20,11 @@ function App() {
   useEffect(() => {
     const fadeTimer = setTimeout(() => {
       setIntroFading(true)
-    }, 2000)
+    }, 3100)
 
     const hideTimer = setTimeout(() => {
       setShowIntro(false)
-    }, 3000)
+    }, 3500)
 
     return () => {
       clearTimeout(fadeTimer)

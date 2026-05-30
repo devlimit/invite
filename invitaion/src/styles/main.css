@@ -31,7 +31,6 @@ body {
 
 .app {
   max-width: 100%;
-  overflow-x: hidden;
 }
 
 /* Intro */
@@ -323,8 +322,9 @@ body {
 /* Couple */
 .couple__grid {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
   gap: 2rem;
 }
 
@@ -345,6 +345,21 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.couple__photo--cutout {
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  overflow: visible;
+  width: clamp(120px, 38vw, 300px);
+  height: auto;
+}
+
+.couple__photo--cutout img {
+  width: 100%;
+  height: auto;
+  object-fit: unset;
 }
 
 .couple__role {
@@ -377,6 +392,8 @@ body {
 .couple__divider {
   color: var(--color-heart);
   font-size: 1.5rem;
+  align-self: flex-start;
+  padding-top: clamp(40px, 12vw, 120px);
 }
 
 /* Calendar */
@@ -552,13 +569,32 @@ body {
 
 .gallery__close {
   position: absolute;
-  top: -40px;
-  right: 0;
+  top: 1rem;
+  right: 1rem;
   background: none;
   border: none;
   color: var(--color-white);
   font-size: 2rem;
   cursor: pointer;
+  z-index: 2001;
+}
+
+.gallery__nav {
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 3.5rem;
+  cursor: pointer;
+  padding: 0 1rem;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  z-index: 2001;
+  flex-shrink: 0;
+}
+
+.gallery__nav:hover {
+  opacity: 1;
 }
 
 /* Location */
@@ -853,12 +889,6 @@ body {
 
   .section {
     padding: 5rem 2rem;
-  }
-
-  .couple__grid {
-    flex-direction: row;
-    justify-content: center;
-    gap: 4rem;
   }
 
   .gallery__grid {

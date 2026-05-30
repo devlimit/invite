@@ -3,7 +3,7 @@ function Hero() {
     <section id="hero" className="hero">
       <div className="hero__image">
         <img
-          src="https://picsum.photos/seed/wedding-main/800/1200"
+          src={`${import.meta.env.BASE_URL}wedding-main.jpg`}
           alt="웨딩 메인 사진"
         />
         <div className="hero__overlay">
@@ -16,7 +16,7 @@ function Hero() {
           <span className="hero__heart">♥</span>
           <span>신혜림</span>
         </p>
-        <p className="hero__date">2026. 09. 19. SAT PM 5:40</p>
+        <p className="hero__date">2026. 09. 19. SAT PM 17:40</p>
         <p className="hero__venue">공군호텔 3층 그랜드볼룸</p>
       </div>
     </section>
