@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600&family=Pinyon+Script&display=swap');
 
 * {
   margin: 0;
@@ -31,7 +31,6 @@ body {
 
 .app {
   max-width: 100%;
-  overflow-x: hidden;
 }
 
 /* Intro */
@@ -41,7 +40,7 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(135deg, #fdf6f0 0%, #f5e6d3 100%);
+  background: #f8f4ef;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,49 +54,54 @@ body {
 
 .intro__content {
   text-align: center;
-  animation: fadeInUp 1s ease;
-}
-
-.intro__subtitle {
-  font-size: 0.9rem;
-  color: var(--color-text-light);
-  letter-spacing: 0.3em;
-  margin-bottom: 1rem;
 }
 
 .intro__title {
-  font-size: 2rem;
+  font-family: 'Pinyon Script', cursive;
+  font-size: 3.5rem;
   font-weight: 400;
-  color: var(--color-text);
-  letter-spacing: 0.2em;
-}
-
-.intro__hearts {
-  margin-top: 2rem;
+  color: #d4a5a5;
+  line-height: 1.5;
   display: flex;
-  justify-content: center;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
 }
 
-.intro__hearts span {
-  color: var(--color-heart);
-  font-size: 1.2rem;
-  animation: pulse 1.5s infinite;
+.intro__svg {
+  width: 85vw;
+  max-width: 420px;
+  overflow: visible;
 }
 
-.intro__hearts span:nth-child(2) {
-  animation-delay: 0.2s;
+.intro__title--fallback {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 3.5rem;
+  color: #d4a5a5;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
-.intro__hearts span:nth-child(3) {
-  animation-delay: 0.4s;
+.intro__loading {
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes drawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillIn {
+  from { fill-opacity: 0; }
+  to   { fill-opacity: 1; }
 }
 
 /* Navigation */
 .nav-toggle {
   position: fixed;
   top: 1rem;
-  right: 1rem;
+  left: 1rem;
   z-index: 1001;
   width: 40px;
   height: 40px;
@@ -135,17 +139,17 @@ body {
 .nav {
   position: fixed;
   top: 0;
-  right: -280px;
+  left: -280px;
   width: 280px;
   height: 100vh;
   background: var(--color-white);
   z-index: 1000;
-  transition: right 0.3s ease;
-  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease;
+  box-shadow: 5px 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .nav--open {
-  right: 0;
+  left: 0;
 }
 
 .nav__list {
@@ -318,8 +322,9 @@ body {
 /* Couple */
 .couple__grid {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
   gap: 2rem;
 }
 
@@ -340,6 +345,21 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.couple__photo--cutout {
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  overflow: visible;
+  width: clamp(120px, 38vw, 300px);
+  height: auto;
+}
+
+.couple__photo--cutout img {
+  width: 100%;
+  height: auto;
+  object-fit: unset;
 }
 
 .couple__role {
@@ -372,6 +392,8 @@ body {
 .couple__divider {
   color: var(--color-heart);
   font-size: 1.5rem;
+  align-self: flex-start;
+  padding-top: clamp(40px, 12vw, 120px);
 }
 
 /* Calendar */
@@ -547,13 +569,32 @@ body {
 
 .gallery__close {
   position: absolute;
-  top: -40px;
-  right: 0;
+  top: 1rem;
+  right: 1rem;
   background: none;
   border: none;
   color: var(--color-white);
   font-size: 2rem;
   cursor: pointer;
+  z-index: 2001;
+}
+
+.gallery__nav {
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 3.5rem;
+  cursor: pointer;
+  padding: 0 1rem;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  z-index: 2001;
+  flex-shrink: 0;
+}
+
+.gallery__nav:hover {
+  opacity: 1;
 }
 
 /* Location */
@@ -775,7 +816,7 @@ body {
 .music-player {
   position: fixed;
   top: 1rem;
-  left: 1rem;
+  right: 1rem;
   z-index: 1001;
 }
 
@@ -848,12 +889,6 @@ body {
 
   .section {
     padding: 5rem 2rem;
-  }
-
-  .couple__grid {
-    flex-direction: row;
-    justify-content: center;
-    gap: 4rem;
   }
 
   .gallery__grid {

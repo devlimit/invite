@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const WEDDING_DATE = new Date('2025-03-15T14:00:00')
+const WEDDING_DATE = new Date('2026-09-19T17:40:00')
 
 function Dday() {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
