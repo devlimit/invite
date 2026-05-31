@@ -1,14 +1,26 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 function Intro({ fading, onEnd }) {
   const videoRef = useRef(null)
+  const [needsTap, setNeedsTap] = useState(false)
 
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
+
     video.muted = true
-    video.play().catch(() => onEnd())
+    video.play().catch(() => setNeedsTap(true))
+
+    const timeout = setTimeout(onEnd, 30000)
+    return () => clearTimeout(timeout)
   }, [])
+
+  const handleTap = () => {
+    const video = videoRef.current
+    if (!video) return
+    setNeedsTap(false)
+    video.play().catch(onEnd)
+  }
 
   return (
     <div className={`intro ${fading ? 'intro--fading' : ''}`}>
@@ -16,12 +28,15 @@ function Intro({ fading, onEnd }) {
         ref={videoRef}
         className="intro__video"
         src={`${import.meta.env.BASE_URL}intro.mp4`}
-        autoPlay
         playsInline
         muted
         onEnded={onEnd}
-        onError={onEnd}
       />
+      {needsTap && (
+        <button className="intro__tap" onClick={handleTap}>
+          터치해서 시작
+        </button>
+      )}
     </div>
   )
 }

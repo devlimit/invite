@@ -2,56 +2,36 @@ import { useState, useRef, useEffect } from 'react'
 
 function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [hasInteracted, setHasInteracted] = useState(false)
   const audioRef = useRef(null)
 
   useEffect(() => {
-    const handleInteraction = () => {
-      if (!hasInteracted) {
-        setHasInteracted(true)
-        if (audioRef.current) {
-          audioRef.current.play().then(() => {
-            setIsPlaying(true)
-          }).catch(() => {
-            setIsPlaying(false)
-          })
-        }
-      }
-    }
-
-    document.addEventListener('click', handleInteraction, { once: true })
-    return () => document.removeEventListener('click', handleInteraction)
-  }, [hasInteracted])
+    const audio = audioRef.current
+    if (!audio) return
+    audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false))
+  }, [])
 
   const togglePlay = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause()
-      } else {
-        audioRef.current.play()
-      }
-      setIsPlaying(!isPlaying)
+    const audio = audioRef.current
+    if (!audio) return
+    if (isPlaying) {
+      audio.pause()
+      setIsPlaying(false)
+    } else {
+      audio.play().then(() => setIsPlaying(true)).catch(() => {})
     }
   }
 
   return (
     <div className="music-player">
-      <audio ref={audioRef} loop>
-        <source src="/invite/music/bgm.mp3" type="audio/mpeg" />
-      </audio>
-      <button
-        className={`music-player__btn ${isPlaying ? 'music-player__btn--playing' : ''}`}
-        onClick={togglePlay}
-        aria-label={isPlaying ? '음악 정지' : '음악 재생'}
-      >
+      <audio ref={audioRef} loop src={`${import.meta.env.BASE_URL}everglow.mp3`} />
+      <button className="music-player__btn" onClick={togglePlay} aria-label={isPlaying ? '음악 끄기' : '음악 켜기'}>
         {isPlaying ? (
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" width="24" height="24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
           </svg>
         ) : (
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" opacity="0.3"/>
-            <line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" strokeWidth="2"/>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" width="24" height="24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
           </svg>
         )}
       </button>

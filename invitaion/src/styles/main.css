@@ -58,6 +58,23 @@ body {
   object-fit: cover;
 }
 
+.intro__tap {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 30px;
+  padding: 0.8rem 2.5rem;
+  font-size: 1rem;
+  font-family: var(--font-main);
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
 .intro__content {
   text-align: center;
 }
