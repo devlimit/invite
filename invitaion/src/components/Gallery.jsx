@@ -1,15 +1,8 @@
 import { useState, useEffect } from 'react'
 
-const colors = ['#f5e6d3', '#e8d4c4', '#f0e0d0', '#faf0e6', '#f5deb3']
-
 const images = Array.from({ length: 15 }, (_, i) => ({
   id: i + 1,
-  src: `data:image/svg+xml,${encodeURIComponent(`
-    <svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800">
-      <rect fill="${colors[i % colors.length]}" width="600" height="800"/>
-      <text x="300" y="400" text-anchor="middle" fill="#d4a5a5" font-size="24" font-family="serif">${i + 1}</text>
-    </svg>
-  `)}`,
+  src: `https://picsum.photos/seed/wedding${i + 1}/600/800`,
   alt: `웨딩 사진 ${i + 1}`
 }))
 
