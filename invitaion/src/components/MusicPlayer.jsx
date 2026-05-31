@@ -7,7 +7,7 @@ function MusicPlayer() {
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
-    audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false))
+    audio.play().then(() => setIsPlaying(true)).catch(() => {})
   }, [])
 
   const togglePlay = () => {
