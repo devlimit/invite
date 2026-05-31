@@ -4,17 +4,17 @@ const accounts = {
   groom: {
     title: '신랑측',
     accounts: [
-      { bank: '신한은행', number: '110-123-456789', holder: '김신랑' },
-      { bank: '국민은행', number: '123-45-6789012', holder: '김아버지' },
-      { bank: '우리은행', number: '1002-123-456789', holder: '박어머니' },
+      { bank: '신한은행', number: '110-123-456789', holder: '이경수' },
+      { bank: '국민은행', number: '', holder: '이원재' },
+      { bank: '우리은행', number: '', holder: '조은숙' },
     ]
   },
   bride: {
     title: '신부측',
     accounts: [
-      { bank: '카카오뱅크', number: '3333-12-3456789', holder: '신혜림' },
-      { bank: '하나은행', number: '123-456789-12345', holder: '신현성' },
-      { bank: '농협은행', number: '123-4567-8901-23', holder: '박용자' },
+      { bank: '신한은행', number: '110-457-030890', holder: '신혜림' },
+      { bank: '은행', number: '', holder: '신현성' },
+      { bank: '하나은행', number: '', holder: '박용자' },
     ]
   }
 }

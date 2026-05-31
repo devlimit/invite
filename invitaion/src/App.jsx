@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Intro from './components/Intro'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
@@ -14,30 +14,17 @@ import MusicPlayer from './components/MusicPlayer'
 import './styles/main.css'
 
 function App() {
-  const [showIntro, setShowIntro] = useState(true)
   const [introFading, setIntroFading] = useState(false)
+  const [showIntro, setShowIntro] = useState(true)
 
-  useEffect(() => {
-    const fadeTimer = setTimeout(() => {
-      setIntroFading(true)
-    }, 3100)
-
-    const hideTimer = setTimeout(() => {
-      setShowIntro(false)
-    }, 3500)
-
-    return () => {
-      clearTimeout(fadeTimer)
-      clearTimeout(hideTimer)
-    }
-  }, [])
-
-  if (showIntro) {
-    return <Intro fading={introFading} />
+  const handleIntroEnd = () => {
+    setIntroFading(true)
+    setTimeout(() => setShowIntro(false), 1000)
   }
 
   return (
     <div className="app">
+      {showIntro && <Intro fading={introFading} onEnd={handleIntroEnd} />}
       <Petals />
       <Navigation />
       <MusicPlayer />

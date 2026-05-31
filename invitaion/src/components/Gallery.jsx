@@ -51,11 +51,19 @@ function Gallery() {
       {selectedIndex !== null && (
         <div className="gallery__modal" onClick={closeModal}>
           <button className="gallery__close" onClick={closeModal}>×</button>
-          <button className="gallery__nav gallery__nav--prev" onClick={goPrev}>&#8249;</button>
+          <button className="gallery__nav gallery__nav--prev" onClick={goPrev}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" width="32" height="32">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+          </button>
           <div className="gallery__modal-content" onClick={(e) => e.stopPropagation()}>
             <img src={images[selectedIndex].src} alt={images[selectedIndex].alt} />
           </div>
-          <button className="gallery__nav gallery__nav--next" onClick={goNext}>&#8250;</button>
+          <button className="gallery__nav gallery__nav--next" onClick={goNext}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" width="32" height="32">
+              <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
         </div>
       )}
     </section>
