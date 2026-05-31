@@ -40,7 +40,7 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: #f8f4ef;
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,6 +50,12 @@ body {
 
 .intro--fading {
   opacity: 0;
+}
+
+.intro__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .intro__content {
@@ -357,9 +363,16 @@ body {
 }
 
 .couple__photo--cutout img {
-  width: 100%;
+  display: block;
+  width: clamp(200px, 60vw, 460px);
   height: auto;
   object-fit: unset;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.couple__photo--cutout img.couple__photo--groom {
+  transform: translateX(-50%) rotate(-4deg);
 }
 
 .couple__role {
@@ -371,6 +384,10 @@ body {
 .couple__name {
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+.couple__person--cutout .couple__info {
+  margin-top: -60px;
 }
 
 .couple__contact {
@@ -393,7 +410,7 @@ body {
   color: var(--color-heart);
   font-size: 1.5rem;
   align-self: flex-start;
-  padding-top: clamp(40px, 12vw, 120px);
+  padding-top: clamp(100px, 28vw, 240px);
 }
 
 /* Calendar */
@@ -547,23 +564,26 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.95);
   z-index: 2000;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 0;
 }
 
 .gallery__modal-content {
   position: relative;
-  max-width: 100%;
-  max-height: 90vh;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .gallery__modal-content img {
-  max-width: 100%;
-  max-height: 90vh;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
@@ -582,15 +602,23 @@ body {
 .gallery__nav {
   background: none;
   border: none;
+  outline: none;
   color: var(--color-white);
-  font-size: 3.5rem;
   cursor: pointer;
   padding: 0 1rem;
-  line-height: 1;
   opacity: 0.8;
   transition: opacity 0.2s;
   z-index: 2001;
   flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.gallery__nav:focus,
+.gallery__nav:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 
 .gallery__nav:hover {

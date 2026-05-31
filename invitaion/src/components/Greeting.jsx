@@ -4,12 +4,8 @@ function Greeting() {
       <h2 className="section__title">인사말</h2>
       <div className="greeting__content">
         <p>
-          서로 다른 길을 걸어온 두 사람이<br />
+          신선한 바람이 불어오는 9월<br />
           이제 같은 길을 함께 걸어가려 합니다.
-        </p>
-        <p>
-          저희 두 사람이 사랑으로 만나<br />
-          믿음과 이해의 행복한 가정을 이루려 합니다.
         </p>
         <p>
           오셔서 축복해 주시면<br />

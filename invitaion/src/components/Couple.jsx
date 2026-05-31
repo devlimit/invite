@@ -8,6 +8,7 @@ function Couple() {
             <img
               src={`${import.meta.env.BASE_URL}groom.png`}
               alt="신랑"
+              className="couple__photo--groom"
             />
           </div>
           <div className="couple__info">
