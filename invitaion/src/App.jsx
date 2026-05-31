@@ -25,22 +25,26 @@ function App() {
   return (
     <div className="app">
       {showIntro && <Intro fading={introFading} onEnd={handleIntroEnd} />}
-      <Petals />
-      <Navigation />
-      {!showIntro && <MusicPlayer />}
-      <main>
-        <Hero />
-        <Greeting />
-        <Couple />
-        <Calendar />
-        <Dday />
-        <Gallery />
-        <Location />
-        <Account />
-      </main>
-      <footer className="footer">
-        <p>Thank you for celebrating with us</p>
-      </footer>
+      {!showIntro && (
+        <>
+          <Petals />
+          <Navigation />
+          <MusicPlayer />
+          <main>
+            <Hero />
+            <Greeting />
+            <Couple />
+            <Calendar />
+            <Dday />
+            <Gallery />
+            <Location />
+            <Account />
+          </main>
+          <footer className="footer">
+            <p>Thank you for celebrating with us</p>
+          </footer>
+        </>
+      )}
     </div>
   )
 }
