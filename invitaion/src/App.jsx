@@ -27,7 +27,7 @@ function App() {
       {showIntro && <Intro fading={introFading} onEnd={handleIntroEnd} />}
       <Petals />
       <Navigation />
-      <MusicPlayer />
+      {!showIntro && <MusicPlayer />}
       <main>
         <Hero />
         <Greeting />

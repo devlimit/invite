@@ -605,7 +605,7 @@ body {
 .gallery__close {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: -1rem;
   background: none;
   border: none;
   color: var(--color-white);
