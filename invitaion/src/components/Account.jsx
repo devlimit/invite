@@ -4,7 +4,7 @@ const accounts = {
   groom: {
     title: '신랑측',
     accounts: [
-      { bank: '신한은행', number: '110-123-456789', holder: '이경수' },
+      { bank: '신한은행', number: '110-456-098706', holder: '이경수' },
       { bank: 'sc제일은행', number: '275-20-109700', holder: '이원재' },
       { bank: '국민은행', number: '582501-01-077940', holder: '조은숙' },
     ]

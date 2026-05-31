@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react'
 const imageFiles = [
   'gallery_1.jpg', 'gallery_2.JPG', 'gallery_3.JPG', 'gallery_4.JPG',
   'gallery_5.JPG', 'gallery_6.JPG', 'gallery_7.JPG', 'gallery_8.JPG',
-  'gallery_9.jpg', 'gallery_10.jpg', 'gallery_11.jpg','gallery_12.jpg',
-  'gallery_13.jpg'
+  'gallery_9.jpg', 'gallery_10.jpg', 'gallery_11.jpg','gallery_12.jpg'
 ]
 
 const images = imageFiles.map((file, i) => ({
