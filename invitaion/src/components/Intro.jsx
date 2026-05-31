@@ -6,6 +6,7 @@ function Intro({ fading, onEnd }) {
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
+    video.muted = true
     video.play().catch(() => onEnd())
   }, [])
 
@@ -15,6 +16,7 @@ function Intro({ fading, onEnd }) {
         ref={videoRef}
         className="intro__video"
         src={`${import.meta.env.BASE_URL}intro.mp4`}
+        autoPlay
         playsInline
         muted
         onEnded={onEnd}
