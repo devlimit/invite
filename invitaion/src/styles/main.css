@@ -46,6 +46,7 @@ body {
   justify-content: center;
   z-index: 9999;
   transition: opacity 1s ease;
+  background: #000;
 }
 
 .intro--fading {
