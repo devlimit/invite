@@ -23,7 +23,7 @@ function MusicPlayer() {
 
   return (
     <div className="music-player">
-      <audio ref={audioRef} loop src={`${import.meta.env.BASE_URL}everglow.mp3`} />
+      <audio ref={audioRef} loop src={`${import.meta.env.BASE_URL}EVERGLOW.mp3`} />
       <button className="music-player__btn" onClick={togglePlay} aria-label={isPlaying ? '음악 끄기' : '음악 켜기'}>
         {isPlaying ? (
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#555" width="22" height="22">
