@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react'
 
-const images = Array.from({ length: 15 }, (_, i) => ({
+const imageFiles = [
+  'gallery_1.jpg', 'gallery_2.JPG', 'gallery_3.JPG', 'gallery_4.JPG',
+  'gallery_5.JPG', 'gallery_6.JPG', 'gallery_7.JPG', 'gallery_8.JPG',
+  'gallery_9.jpg', 'gallery_10.jpg', 'gallery_11.jpg',
+]
+
+const images = imageFiles.map((file, i) => ({
   id: i + 1,
-  src: `https://picsum.photos/seed/wedding${i + 1}/600/800`,
+  src: `${import.meta.env.BASE_URL}gallery/${file}`,
   alt: `웨딩 사진 ${i + 1}`
 }))
 
