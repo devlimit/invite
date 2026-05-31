@@ -13,7 +13,7 @@ const accounts = {
     title: '신부측',
     accounts: [
       { bank: '신한은행', number: '110-457-030890', holder: '신혜림' },
-      { bank: '은행', number: '', holder: '신현성' },
+      { bank: '우리은행', number: '498-070-23227', holder: '신현성' },
       { bank: '하나은행', number: '132-910403-15807', holder: '박용자' },
     ]
   }

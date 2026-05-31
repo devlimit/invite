@@ -18,6 +18,7 @@ function App() {
   const [showIntro, setShowIntro] = useState(true)
 
   const handleIntroEnd = () => {
+    window.scrollTo(0, 0)
     setIntroFading(true)
     setTimeout(() => setShowIntro(false), 1000)
   }
@@ -25,7 +26,7 @@ function App() {
   return (
     <div className="app">
       {showIntro && <Intro fading={introFading} onEnd={handleIntroEnd} />}
-      {!showIntro && (
+      {introFading && (
         <>
           <Petals />
           <Navigation />
