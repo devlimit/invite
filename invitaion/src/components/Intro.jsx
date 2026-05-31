@@ -23,7 +23,10 @@ function Intro({ fading, onEnd }) {
   }
 
   return (
-    <div className={`intro ${fading ? 'intro--fading' : ''}`}>
+    <div
+      className={`intro ${fading ? 'intro--fading' : ''}`}
+      style={{ backgroundImage: `url(${import.meta.env.BASE_URL}viedobackgroud.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+    >
       <video
         ref={videoRef}
         className="intro__video"
@@ -34,7 +37,7 @@ function Intro({ fading, onEnd }) {
       />
       {needsTap && (
         <button className="intro__tap" onClick={handleTap}>
-          터치해서 시작
+          초대합니다.
         </button>
       )}
     </div>
