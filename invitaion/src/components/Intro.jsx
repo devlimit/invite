@@ -25,7 +25,7 @@ function Intro({ fading, onEnd }) {
   return (
     <div
       className={`intro ${fading ? 'intro--fading' : ''}`}
-      style={{ backgroundImage: `url(${import.meta.env.BASE_URL}video-obackgroud.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      style={{ backgroundImage: `url(${import.meta.env.BASE_URL}video-backgroud.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <video
         ref={videoRef}
