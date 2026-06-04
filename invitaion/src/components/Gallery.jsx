@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 
 const imageFiles = [
-  'gallery_1.jpg', 'gallery_2.JPG', 'gallery_3.JPG', 'gallery_4.JPG',
-  'gallery_5.JPG', 'gallery_6.JPG', 'gallery_7.JPG', 'gallery_8.JPG',
-  'gallery_9.jpg', 'gallery_10.jpg', 'gallery_11.jpg','gallery_12.jpg'
+  'gallery_01.jpg', 'gallery_02.jpg', 'gallery_03.jpg', 'gallery_04.jpg',
+  'gallery_05.jpg', 'gallery_06.jpg', 'gallery_07.jpg', 'gallery_08.jpg',
+  'gallery_09.jpg', 'gallery_10.jpg', 'gallery_11.jpg','gallery_12.jpg',
+  'gallery_13.jpg', 'gallery_14.jpg', 'gallery_15.jpeg'
 ]
 
 const images = imageFiles.map((file, i) => ({

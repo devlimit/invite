@@ -621,19 +621,29 @@ body {
 }
 
 .gallery__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   outline: none;
   color: var(--color-white);
   cursor: pointer;
-  padding: 0 1rem;
+  padding: 1rem;
   opacity: 0.8;
   transition: opacity 0.2s;
   z-index: 2001;
-  flex-shrink: 0;
   -webkit-tap-highlight-color: transparent;
   display: flex;
   align-items: center;
+}
+
+.gallery__nav--prev {
+  left: 0.5rem;
+}
+
+.gallery__nav--next {
+  right: 0.5rem;
 }
 
 .gallery__nav:focus,
