@@ -37,7 +37,7 @@ function Intro({ fading, onEnd }) {
       />
       {needsTap && (
         <button className="intro__tap" onClick={handleTap}>
-          초대합니다.
+          모바일청첩장 Click
         </button>
       )}
     </div>
