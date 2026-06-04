@@ -1,3 +1,5 @@
+const env = import.meta.env
+
 function Couple() {
   return (
     <section id="couple" className="section couple">
@@ -6,16 +8,16 @@ function Couple() {
         <div className="couple__person couple__person--cutout">
           <div className="couple__photo couple__photo--cutout">
             <img
-              src={`${import.meta.env.BASE_URL}groom.png`}
+              src={`${env.BASE_URL}groom.png`}
               alt="신랑"
               className="couple__photo--groom"
             />
           </div>
           <div className="couple__info">
             <p className="couple__role">신랑</p>
-            <p className="couple__name">이경수</p>
+            <p className="couple__name">{env.VITE_GROOM_NAME}</p>
             <div className="couple__contact">
-              <a href="tel:010-8608-2865" className="couple__phone">
+              <a href={`tel:${env.VITE_GROOM_PHONE}`} className="couple__phone">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                   <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                 </svg>
@@ -32,15 +34,15 @@ function Couple() {
         <div className="couple__person couple__person--cutout">
           <div className="couple__photo couple__photo--cutout">
             <img
-              src={`${import.meta.env.BASE_URL}bride.png`}
+              src={`${env.BASE_URL}bride.png`}
               alt="신부"
             />
           </div>
           <div className="couple__info">
             <p className="couple__role">신부</p>
-            <p className="couple__name">신혜림</p>
+            <p className="couple__name">{env.VITE_BRIDE_NAME}</p>
             <div className="couple__contact">
-              <a href="tel:010-5497-5642" className="couple__phone">
+              <a href={`tel:${env.VITE_BRIDE_PHONE}`} className="couple__phone">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                   <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                 </svg>
