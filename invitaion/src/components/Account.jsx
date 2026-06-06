@@ -6,17 +6,17 @@ const accounts = {
   groom: {
     title: '신랑측',
     accounts: [
-      { bank: env.VITE_GROOM_BANK, number: env.VITE_GROOM_ACCOUNT, holder: env.VITE_GROOM_NAME },
-      { bank: env.VITE_GROOM_FATHER_BANK, number: env.VITE_GROOM_FATHER_ACCOUNT, holder: env.VITE_GROOM_FATHER_NAME },
-      { bank: env.VITE_GROOM_MOTHER_BANK, number: env.VITE_GROOM_MOTHER_ACCOUNT, holder: env.VITE_GROOM_MOTHER_NAME },
+      { bank: '신한은행', number: env.VITE_GROOM_ACCOUNT, holder: env.VITE_GROOM_NAME },
+      { bank: 'sc제일은행', number: env.VITE_GROOM_FATHER_ACCOUNT, holder: env.VITE_GROOM_FATHER_NAME },
+      { bank: '국민은행', number: env.VITE_GROOM_MOTHER_ACCOUNT, holder: env.VITE_GROOM_MOTHER_NAME },
     ].filter(a => a.bank && a.number)
   },
   bride: {
     title: '신부측',
     accounts: [
-      { bank: env.VITE_BRIDE_BANK, number: env.VITE_BRIDE_ACCOUNT, holder: env.VITE_BRIDE_NAME },
-      { bank: env.VITE_BRIDE_FATHER_BANK, number: env.VITE_BRIDE_FATHER_ACCOUNT, holder: env.VITE_BRIDE_FATHER_NAME },
-      { bank: env.VITE_BRIDE_MOTHER_BANK, number: env.VITE_BRIDE_MOTHER_ACCOUNT, holder: env.VITE_BRIDE_MOTHER_NAME },
+      { bank: '신한은행', number: env.VITE_BRIDE_ACCOUNT, holder: env.VITE_BRIDE_NAME },
+      { bank: '우리은행', number: env.VITE_BRIDE_FATHER_ACCOUNT, holder: env.VITE_BRIDE_FATHER_NAME },
+      { bank: '하나은행', number: env.VITE_BRIDE_MOTHER_ACCOUNT, holder: env.VITE_BRIDE_MOTHER_NAME },
     ].filter(a => a.bank && a.number)
   }
 }
