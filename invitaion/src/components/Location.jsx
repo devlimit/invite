@@ -55,9 +55,6 @@ function Location() {
         <button onClick={openNaverMap} className="location__btn location__btn--naver">
           네이버지도
         </button>
-        <button onClick={openTMap} className="location__btn location__btn--tmap">
-          티맵
-        </button>
       </div>
 
       <div className="location__transport">
