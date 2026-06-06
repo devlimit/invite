@@ -60,15 +60,22 @@ function Location() {
       <div className="location__transport">
         <div className="location__transport-item">
           <h4>지하철</h4>
-          <p>1호선 대방역 1번 출구 도보 3분</p>
+          <p>1호선 대방역 5번출구(도보5분)</p>
+          <p>신림선 대방역 6번출구(도보5분)</p>
+          <p>신림선 서울지방병무청역 2번출구(도보9분)</p>
+          <p>7호선 보라매역 7번출구(도보15분)</p>
         </div>
         <div className="location__transport-item">
           <h4>버스</h4>
-          <p>대방역 정류장 하차</p>
+          <p>간선 : 150, 461, 505, 753 </p>
+            <p>   지선 : 5531, 5534, 5623, 5633, 6514, 6713   </p>
+            <p>  광선 : M5609   </p>
+            <p>   마을 : 영등포07 </p>
         </div>
         <div className="location__transport-item">
           <h4>주차</h4>
           <p>공군호텔 내 주차장 이용 가능</p>
+           <p> (예식 하객 기준 3시간 무료주차 제공)</p>
         </div>
       </div>
     </section>
