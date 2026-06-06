@@ -6,103 +6,82 @@
 invitaion/
 ├── src/
 │   ├── components/
-│   │   ├── Intro.jsx          # "우리 결혼했어요" 인트로 애니메이션
+│   │   ├── Intro.jsx          # 인트로 애니메이션
 │   │   ├── Navigation.jsx     # 오른쪽 상단 메뉴
-│   │   ├── Hero.jsx           # 메인 사진 + "with love, always" + 꽃잎
+│   │   ├── Hero.jsx           # 메인 사진 + 꽃잎
 │   │   ├── Greeting.jsx       # 인사말
 │   │   ├── Couple.jsx         # 소개 (신랑/신부)
 │   │   ├── Calendar.jsx       # 달력
 │   │   ├── Dday.jsx           # 디데이 카운트다운
-│   │   ├── Gallery.jsx        # 갤러리
-│   │   ├── Location.jsx       # 오시는길 (지도)
-│   │   ├── Account.jsx        # 계좌번호
+│   │   ├── Gallery.jsx        # 갤러리 (thumb/full 분리)
+│   │   ├── Location.jsx       # 오시는길 (네이버지도)
+│   │   ├── Account.jsx        # 계좌번호 (환경변수)
 │   │   ├── Petals.jsx         # 꽃잎 날리기 효과
 │   │   └── MusicPlayer.jsx    # 배경 음악 플레이어
 │   ├── styles/
-│   │   └── main.css           # 전체 스타일
-│   ├── App.jsx                # 메인 앱
-│   └── main.jsx               # 진입점
+│   │   └── main.css
+│   ├── App.jsx
+│   └── main.jsx
 ├── public/
-│   ├── images/                # 사진들
-│   └── music/                 # 배경 음악 파일
+│   ├── gallery/
+│   │   ├── full/              # 1200px 리사이즈본 (모달용)
+│   │   └── thumb/             # 400px 리사이즈본 (그리드용)
+│   ├── cherryblossom.png      # 꽃잎 이미지
+│   └── ...
 └── index.html
 ```
 
 ## 화면 흐름
 
-### 1. 인트로 (Intro)
-- 전체 화면에 "우리 결혼했어요" 텍스트 표시
-- 2-3초 후 서서히 페이드 아웃
-- 인트로 종료 후 메인 화면으로 전환
-
-### 2. 메인 화면 구성 (스크롤 방식)
-
 | 순서 | 섹션 | 설명 |
 |------|------|------|
-| 1 | Hero | 메인 사진 + "with love, always" 텍스트 오버레이 + 꽃잎 효과 |
-| 2 | Greeting | 인사말 (결혼을 알리는 따뜻한 문구) |
-| 3 | Couple | 신랑/신부 소개 (이름, 연락처 등) |
-| 4 | Calendar | 예식 날짜 달력 표시 |
-| 5 | Dday | D-day 카운트다운 (일/시/분/초) |
-| 6 | Gallery | 사진 갤러리 (스와이프 가능) |
-| 7 | Location | 오시는길 (카카오맵/네이버맵 연동) |
-| 8 | Account | 축의금 계좌번호 (복사 기능) |
-
-### 3. 공통 요소
-
-#### 네비게이션 메뉴 (오른쪽 상단)
-- 햄버거 아이콘 클릭 시 사이드 메뉴 열림
-- 메뉴 항목: 메인, 인사말, 소개, 달력, 디데이, 갤러리, 오시는길, 계좌번호
-- 클릭 시 해당 섹션으로 스무스 스크롤
-
-#### 배경 음악
-- 하단 또는 상단에 음악 재생/정지 버튼
-- 자동 재생 (사용자 인터랙션 후)
-- 음소거 토글 가능
-- 노래는 메인 화면부터 시작 (인트로가 끝난 후에만 렌더링 되게)
-
-#### 꽃잎 효과
-- 화면 상단에서 꽃잎이 떨어지는 애니메이션
-- CSS 또는 Canvas로 구현
+| 1 | Intro | 인트로 애니메이션 |
+| 2 | Hero | 메인 사진 + 꽃잎 효과 |
+| 3 | Greeting | 인사말 |
+| 4 | Couple | 신랑/신부 소개 |
+| 5 | Calendar | 예식 날짜 달력 |
+| 6 | Dday | D-day 카운트다운 |
+| 7 | Gallery | 사진 갤러리 |
+| 8 | Location | 오시는길 (네이버지도) |
+| 9 | Account | 축의금 계좌번호 |
 
 ## 기술 스택
 
 - **프레임워크**: React + Vite
-- **스타일링**: CSS (애니메이션 포함)
-- **아이콘**: SVG 직접 사용
-- **지도**: 카카오맵 API 또는 정적 이미지
-- **호스팅**: GitHub Pages
+- **스타일링**: CSS
+- **호스팅**: GitHub Pages (GitHub Actions 자동 배포)
+- **환경변수**: `.env` + GitHub Actions Secrets
 
-## 개발 순서
+## 완료된 작업
 
-1. **기본 구조 세팅** - App.jsx, 라우팅/스크롤 구조
-2. **인트로 애니메이션** - 페이드 인/아웃 효과
-3. **네비게이션** - 햄버거 메뉴 + 사이드바
-4. **각 섹션 개발** - Hero → Greeting → Couple → Calendar → Dday → Gallery → Location → Account
-5. **꽃잎 효과** - CSS 애니메이션
-6. **배경 음악** - 오디오 플레이어
-7. **반응형/모바일 최적화** - 터치 인터랙션
-8. **테스트 & 배포** - GitHub Actions로 자동 배포
+### 환경변수 분리
+- 계좌번호, 전화번호 등 민감 정보를 `.env`로 분리
+- `Account.jsx`에서 `import.meta.env`로 참조
+- GitHub Actions `deploy.yml`에 secrets 주입 설정 (20개 변수)
 
-## 필요한 에셋 (사용자 제공 필요)
+### 갤러리 최적화
+- 원본 사진(최대 28MB) → `full/` 1200px + `thumb/` 400px 분리
+- 그리드: thumb 사용 (빠른 로딩)
+- 모달: full 사용 (고화질)
+- gallery_09 → 보정본(3).jpg 교체
 
-- [ ] 메인 사진 (커플 사진)
-- [ ] 갤러리 사진들
-- [ ] 배경 음악 파일 (mp3)
-- [ ] 예식 정보 (날짜, 시간, 장소)
-- [ ] 신랑/신부 정보 (이름, 부모님 성함, 연락처)
-- [ ] 계좌번호 정보
-- [ ] 인사말 문구
+### 꽃잎 효과
+- CSS 도형 → `cherryblossom.png` 이미지로 교체
+- 크기: 20~35px
+- 생성 간격: 600ms
 
-## 예상 결과물
+## 배포
 
 ```
 https://devlimit.github.io/invite
 ```
 
-접속 시:
-1. "우리 결혼했어요" 인트로 표시 (2초)
-2. 페이드 아웃 후 메인 화면
-3. 스크롤하며 각 섹션 확인
-4. 오른쪽 상단 메뉴로 빠른 이동
-5. 배경에 잔잔한 음악 + 꽃잎 날림
+### GitHub Secrets 등록 필요 목록
+```
+VITE_GROOM_NAME / VITE_GROOM_PHONE / VITE_GROOM_BANK / VITE_GROOM_ACCOUNT
+VITE_GROOM_FATHER_NAME / VITE_GROOM_FATHER_BANK / VITE_GROOM_FATHER_ACCOUNT
+VITE_GROOM_MOTHER_NAME / VITE_GROOM_MOTHER_BANK / VITE_GROOM_MOTHER_ACCOUNT
+VITE_BRIDE_NAME / VITE_BRIDE_PHONE / VITE_BRIDE_BANK / VITE_BRIDE_ACCOUNT
+VITE_BRIDE_FATHER_NAME / VITE_BRIDE_FATHER_BANK / VITE_BRIDE_FATHER_ACCOUNT
+VITE_BRIDE_MOTHER_NAME / VITE_BRIDE_MOTHER_BANK / VITE_BRIDE_MOTHER_ACCOUNT
+```

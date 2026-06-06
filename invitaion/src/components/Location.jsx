@@ -37,7 +37,7 @@ function Location() {
 
       <div className="location__map">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.5!2d126.9177!3d37.5139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9f!2z6rO16rWw7Zi47YWU!5e0!3m2!1sko!2skr!4v1"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.9036382377226!2d126.92162147538369!3d37.51019082735786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9f0fa6e6079f%3A0x47f82d26a777772a!2z6rO16rWw7Zi47YWUIOybqOuUqe2ZgA!5e0!3m2!1sko!2skr!4v1780740491634!5m2!1sko!2skr"
           width="100%"
           height="250"
           style={{ border: 0, borderRadius: '10px' }}
